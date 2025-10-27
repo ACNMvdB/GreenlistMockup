@@ -2,27 +2,140 @@ import React, { useState } from 'react';
 import { Users, Shield, Layers, Zap, Lock, ExternalLink, Target, Search, DollarSign, BookOpen } from 'lucide-react';
 
 const AISolutionsDashboard = () => {
+  // Zet de data terug
   const aiSolutions = [
-    // zelfde data als eerder
+    {
+      id: 1,
+      name: "Copilot M365",
+      version: "Enterprise v2.1",
+      logo: "https://images.seeklogo.com/logo-png/62/1/microsoft-365-copilot-logo-png_seeklogo-621257.png",
+      riskLevel: "Low",
+      toolType: "Enterprise Productivity",
+      primaryCapability: "Text to Text",
+      functions: ["Document Generation", "Data Analysis", "Email Composition", "Meeting Summaries"],
+      description: "AI-powered assistant integrated across Microsoft 365 applications including Word, Excel, PowerPoint, Teams, and Outlook. Enhances productivity through intelligent content generation, data analysis, and workflow automation within your existing M365 environment.",
+      deploymentType: "No code / Ready to use",
+      cost: "License Cost - $30/user/month",
+      expectedUseCase: "Document creation in Word, data analysis in Excel, presentation building in PowerPoint, meeting summaries in Teams, email drafting in Outlook",
+      tipsheet: "https://support.microsoft.com/microsoft-365-copilot",
+      leadContacts: ["Daphne Coates"],
+      howToAccess: "Available through your Microsoft 365 account. Click the Copilot icon in any M365 app (Word, Excel, PowerPoint, Teams, Outlook). Contact IT for license assignment.",
+      owner: "Microsoft Corporation",
+      contactPerson: "Sarah Johnson",
+      email: "sarah.johnson@microsoft.com",
+      phone: "+1 (425) 882-8080",
+      department: "Enterprise Solutions",
+      implementationDate: "March 2024",
+      licenseType: "Enterprise Annual",
+      monthlyCost: 12500,
+      activeUsers: 450,
+      features: ["Document Generation", "Data Analysis", "Meeting Summaries", "Email Drafting"],
+      website: "https://www.microsoft.com/microsoft-365/copilot",
+      status: "Active"
+    },
+    {
+      id: 2,
+      name: "Adobe Firefly",
+      version: "v3.0",
+      logo: "https://www.adobe.com/cc-shared/assets/img/firefly.svg",
+      riskLevel: "Medium",
+      toolType: "Enterprise Productivity",
+      primaryCapability: "Text to Image",
+      functions: ["Image Generation", "Image Editing", "Graphic Design", "Visual Content Creation"],
+      description: "Generative AI tool for creating and editing images, graphics, and visual content. Seamlessly integrated with Adobe Creative Cloud applications for professional design workflows. Trained on licensed content for commercial safety.",
+      deploymentType: "Low code",
+      cost: "License Cost - $50/user/month",
+      expectedUseCase: "Marketing materials, social media content, internal presentations, concept design, brand asset creation",
+      tipsheet: "https://helpx.adobe.com/firefly",
+      leadContacts: ["Oliver Redington"],
+      howToAccess: "Access through Adobe Creative Cloud desktop app or visit firefly.adobe.com. Requires Creative Cloud subscription. Integrated into Photoshop, Illustrator, and Express.",
+      owner: "Adobe Inc.",
+      contactPerson: "Emma Williams",
+      email: "emma.williams@adobe.com",
+      phone: "+1 (408) 536-6000",
+      department: "Creative & Marketing",
+      implementationDate: "May 2024",
+      licenseType: "Creative Cloud Teams",
+      monthlyCost: 8900,
+      activeUsers: 125,
+      features: ["Image Generation", "Text Effects", "Generative Fill", "Style Transfer"],
+      website: "https://www.adobe.com/products/firefly",
+      status: "Active"
+    },
+    {
+      id: 3,
+      name: "Azure Databricks AI Assistant",
+      version: "v1.2",
+      logo: "https://www.databricks.com/sites/default/files/2024-06/db-assistant-header-graphic.png?v=1717414173",
+      riskLevel: "Low",
+      toolType: "Build",
+      primaryCapability: "Text to Text",
+      functions: ["Code Generation", "Query Assistance", "Data Analysis", "Documentation"],
+      description: "AI-powered assistant integrated into Databricks notebooks that helps data engineers and scientists write code, debug queries, explain results, and optimize data pipelines. Context-aware of your data environment.",
+      deploymentType: "No code / Ready to use",
+      cost: "Included with Databricks Premium",
+      expectedUseCase: "Data engineering workflows, SQL query writing, PySpark code generation, data analysis assistance, pipeline optimization",
+      tipsheet: "https://docs.databricks.com/ai-assistant",
+      leadContacts: ["Daphne Coates"],
+      howToAccess: "Available in Databricks workspace notebooks. Click AI Assistant icon in notebook toolbar. Must have Databricks Premium tier enabled.",
+      owner: "Databricks / Azure",
+      contactPerson: "David Rodriguez",
+      email: "d.rodriguez@databricks.com",
+      phone: "+1 (415) 555-0199",
+      department: "Data Engineering",
+      implementationDate: "September 2024",
+      licenseType: "Premium Tier Included",
+      monthlyCost: 0,
+      activeUsers: 67,
+      features: ["Code Generation", "Query Help", "Data Insights", "Debugging"],
+      website: "https://www.databricks.com/product/ai-assistant",
+      status: "Active"
+    },
+    {
+      id: 4,
+      name: "GitHub Copilot",
+      version: "Business v1.5",
+      logo: "https://images.seeklogo.com/logo-png/42/1/github-copilot-logo-png_seeklogo-428029.png",
+      riskLevel: "Low",
+      toolType: "Build",
+      primaryCapability: "Text to Text",
+      functions: ["Code Completion", "Code Explanation", "Test Generation", "Documentation"],
+      description: "AI pair programmer that helps developers write code faster with intelligent code suggestions, completions, and explanations. Supports multiple programming languages and frameworks with context from your codebase.",
+      deploymentType: "No code / Ready to use",
+      cost: "License Cost - $19/user/month",
+      expectedUseCase: "Software development, code review, unit test generation, debugging assistance, technical documentation writing",
+      tipsheet: "https://docs.github.com/copilot",
+      leadContacts: ["Oliver Redington"],
+      howToAccess: "Install GitHub Copilot extension in VS Code, Visual Studio, or JetBrains IDE. Login with your GitHub account. Contact IT for license assignment.",
+      owner: "GitHub (Microsoft)",
+      contactPerson: "David Rodriguez",
+      email: "d.rodriguez@github.com",
+      phone: "+1 (415) 735-4488",
+      department: "Software Development",
+      implementationDate: "February 2024",
+      licenseType: "Business",
+      monthlyCost: 5600,
+      activeUsers: 230,
+      features: ["Code Completion", "Code Explanation", "Test Generation", "Documentation"],
+      website: "https://github.com/features/copilot",
+      status: "Active"
+    }
   ];
 
-  const [selectedSolution, setSelectedSolution] = useState(aiSolutions[0]);
+  // defensieve init
+  const [selectedSolution, setSelectedSolution] = useState(aiSolutions[0] ?? null);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTab, setActiveTab] = useState('enterprise');
-  const [activeTeam, setActiveTeam] = useState('A');
 
   const filteredSolutions = aiSolutions.filter(solution => {
     const q = searchQuery.toLowerCase();
-    // filter op team alleen als activeTab = product
-    const matchesTeam = activeTab === 'product' ? solution.toolType?.includes(`Team ${activeTeam}`) || true : true;
-    const matchesSearch = (
+    return (
       solution.name.toLowerCase().includes(q) ||
       solution.description.toLowerCase().includes(q) ||
       solution.owner.toLowerCase().includes(q) ||
       solution.toolType.toLowerCase().includes(q) ||
       solution.primaryCapability.toLowerCase().includes(q)
     );
-    return matchesSearch && matchesTeam;
   });
 
   return (
@@ -69,35 +182,16 @@ const AISolutionsDashboard = () => {
                   : 'text-slate-700 hover:bg-slate-50'}`}
                 aria-pressed={activeTab === 'product'}
               >
-                Product Team
+                Product Teams
               </button>
             </div>
           </div>
         </div>
 
-        {activeTab === 'enterprise' || activeTab === 'product' ? (
+        {(activeTab === 'enterprise' || activeTab === 'product') && (
           <div className="grid grid-cols-12 gap-6">
             {/* Left Sidebar - Solution List */}
             <div className="col-span-3 bg-white rounded-2xl shadow-xl p-6">
-              {activeTab === 'product' && (
-                <div className="flex gap-2 mb-4">
-                  {['A','B','C'].map(team => (
-                    <button
-                      key={team}
-                      type="button"
-                      onClick={() => setActiveTeam(team)}
-                      className={`flex-1 px-2 py-1 text-sm font-medium rounded-lg border transition ${
-                        activeTeam === team
-                          ? 'text-white bg-gradient-to-r from-[#54BAFC] to-[#0066CC] border-transparent shadow'
-                          : 'text-slate-700 border-slate-200 hover:bg-slate-50'
-                      }`}
-                    >
-                      Product team {team}
-                    </button>
-                  ))}
-                </div>
-              )}
-
               <h2 className="text-xl font-semibold mb-6 mt-2" style={{background: 'linear-gradient(90deg, #54BAFC 0%, #0066CC 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>
                 Solutions ({filteredSolutions.length})
               </h2>
@@ -120,13 +214,13 @@ const AISolutionsDashboard = () => {
                     key={solution.id}
                     onClick={() => setSelectedSolution(solution)}
                     role="option"
-                    aria-selected={selectedSolution.id === solution.id}
+                    aria-selected={selectedSolution?.id === solution.id}
                     className={`w-full text-left p-4 rounded-xl cursor-pointer transition-all duration-300 flex items-center gap-4 ${
-                      selectedSolution.id === solution.id
+                      selectedSolution?.id === solution.id
                         ? 'shadow-lg scale-105 transform'
                         : 'bg-slate-50 hover:bg-blue-50 hover:shadow-md'
                     }`}
-                    style={selectedSolution.id === solution.id ? {background: 'linear-gradient(135deg, #54BAFC 0%, #0066CC 100%)'} : {}}
+                    style={selectedSolution?.id === solution.id ? {background: 'linear-gradient(135deg, #54BAFC 0%, #0066CC 100%)'} : {}}
                   >
                     <div className="flex-shrink-0 w-12 h-12 bg-white rounded-lg p-2 flex items-center justify-center shadow-sm">
                       <img 
@@ -141,12 +235,12 @@ const AISolutionsDashboard = () => {
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className={`font-semibold text-sm truncate ${
-                        selectedSolution.id === solution.id ? 'text-white' : 'text-slate-800'
+                        selectedSolution?.id === solution.id ? 'text-white' : 'text-slate-800'
                       }`}>
                         {solution.name}
                       </h3>
                       <p className={`text-xs truncate ${
-                        selectedSolution.id === solution.id ? 'text-blue-100' : 'text-slate-500'
+                        selectedSolution?.id === solution.id ? 'text-blue-100' : 'text-slate-500'
                       }`}>
                         {solution.owner}
                       </p>
@@ -172,13 +266,20 @@ const AISolutionsDashboard = () => {
               <SolutionDetails selectedSolution={selectedSolution} />
             </div>
           </div>
-        ) : null}
+        )}
       </div>
     </div>
   );
 };
 
 function SolutionDetails({ selectedSolution }) {
+  if (!selectedSolution) {
+    return (
+      <div className="bg-white rounded-2xl shadow-xl p-8 text-center text-slate-500">
+        No solution selected
+      </div>
+    );
+  }
   return (
     <>
       <div className="bg-white rounded-2xl shadow-xl p-8">
