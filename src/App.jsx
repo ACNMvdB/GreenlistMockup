@@ -7,7 +7,7 @@ const AISolutionsDashboard = () => {
       id: 1,
       name: "Copilot M365",
       version: "Enterprise v2.1",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Microsoft_365_Copilot_Icon.svg/240px-Microsoft_365_Copilot_Icon.svg.png",
+      logo: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.microsoft.com%2Fnl-nl%2Fp%2Fmicrosoft-365-copilot%2F9wzdncrd29v9&psig=AOvVaw1rCDpcAh94ofFAB2dPiomO&ust=1761643162595000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCODX2amGxJADFQAAAAAdAAAAABAE",
       riskLevel: "Low",
       toolType: "Enterprise Productivity",
       primaryCapability: "Text to Text",
