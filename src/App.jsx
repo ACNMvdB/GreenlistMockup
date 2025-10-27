@@ -149,7 +149,7 @@ const AISolutionsDashboard = () => {
               }}
             />
             <div>
-              <h1 className="text-4xl font-bold mb-1" style={{color: '#0D009D'}}>AI Solutions Portfolio</h1>
+              <h1 className="text-4xl font-bold mb-1" style={{color: '#0D009D'}}>AI Solutions Portfolio (mockup)</h1>
               <p style={{color: '#54BAFC'}}>Unilever approved AI tools and solutions</p>
             </div>
           </div>
