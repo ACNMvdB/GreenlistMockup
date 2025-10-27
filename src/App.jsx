@@ -12,13 +12,13 @@ const AISolutionsDashboard = () => {
       toolType: "Enterprise Productivity",
       primaryCapability: "Text to Text",
       functions: ["Document Generation", "Data Analysis", "Email Composition", "Meeting Summaries"],
-      description: "AI assistant in Word, Excel, PowerPoint, Teams en Outlook. Helpt met content, analyse en taken.",
+      description: "AI assistant integrated in Word, Excel, PowerPoint, Teams and Outlook. Helps with content creation, analysis and task support.",
       deploymentType: "No code / Ready to use",
       cost: "License Cost, $30/user/month",
-      expectedUseCase: "Documenten, analyses, presentaties, meeting notes, e-mail",
+      expectedUseCase: "Documents, analysis, presentations, meeting notes, email",
       tipsheet: "https://support.microsoft.com/microsoft-365-copilot",
       leadContacts: ["Daphne Coates"],
-      howToAccess: "In M365, klik op het Copilot icoon. Licentie via IT.",
+      howToAccess: "In M365, click the Copilot icon. License available via IT.",
       owner: "Microsoft Corporation",
       contactPerson: "Sarah Johnson",
       email: "sarah.johnson@microsoft.com",
@@ -42,13 +42,13 @@ const AISolutionsDashboard = () => {
       toolType: "Enterprise Productivity",
       primaryCapability: "Text to Image",
       functions: ["Image Generation", "Image Editing", "Graphic Design", "Visual Content Creation"],
-      description: "GenAI voor beelden en grafisch werk. Werkt met Photoshop, Illustrator en Express.",
+      description: "GenAI tool for image and graphic creation. Works with Photoshop, Illustrator and Express.",
       deploymentType: "Low code",
       cost: "License Cost, $50/user/month",
-      expectedUseCase: "Social assets, presentaties, concepten, merkbeelden",
+      expectedUseCase: "Social assets, presentations, concepting, branding materials",
       tipsheet: "https://helpx.adobe.com/firefly",
       leadContacts: ["Oliver Redington"],
-      howToAccess: "Via Creative Cloud of firefly.adobe.com. Abonnement nodig.",
+      howToAccess: "Via Creative Cloud or firefly.adobe.com. Subscription required.",
       owner: "Adobe Inc.",
       contactPerson: "Emma Williams",
       email: "emma.williams@adobe.com",
@@ -72,13 +72,13 @@ const AISolutionsDashboard = () => {
       toolType: "Build",
       primaryCapability: "Text to Text",
       functions: ["Code Generation", "Query Assistance", "Data Analysis", "Documentation"],
-      description: "Assistent in Databricks notebooks voor SQL, PySpark, debug en pipeline optimalisatie.",
+      description: "Assistant in Databricks notebooks for SQL, PySpark, debugging and pipeline optimization.",
       deploymentType: "No code / Ready to use",
       cost: "Included with Databricks Premium",
-      expectedUseCase: "SQL, PySpark, data workflows, analyse",
+      expectedUseCase: "SQL, PySpark, data workflows, analysis",
       tipsheet: "https://docs.databricks.com/ai-assistant",
       leadContacts: ["Daphne Coates"],
-      howToAccess: "Klik AI Assistant in de notebook toolbar. Premium nodig.",
+      howToAccess: "Click AI Assistant in the notebook toolbar. Premium required.",
       owner: "Databricks / Azure",
       contactPerson: "David Rodriguez",
       email: "d.rodriguez@databricks.com",
@@ -102,13 +102,13 @@ const AISolutionsDashboard = () => {
       toolType: "Build",
       primaryCapability: "Text to Text",
       functions: ["Code Completion", "Code Explanation", "Test Generation", "Documentation"],
-      description: "AI pair programmer met suggesties, uitleg en tests voor vele talen en IDEs.",
+      description: "AI pair programmer that provides suggestions, explanations and tests for many languages and IDEs.",
       deploymentType: "No code / Ready to use",
       cost: "License Cost, $19/user/month",
-      expectedUseCase: "Development, code review, tests, docs",
+      expectedUseCase: "Development, code review, testing, documentation",
       tipsheet: "https://docs.github.com/copilot",
       leadContacts: ["Oliver Redington"],
-      howToAccess: "Installeer de Copilot extensie en login met GitHub. Licentie via IT.",
+      howToAccess: "Install the Copilot extension and login with GitHub. License provided via IT.",
       owner: "GitHub (Microsoft)",
       contactPerson: "David Rodriguez",
       email: "d.rodriguez@github.com",
@@ -156,7 +156,7 @@ const AISolutionsDashboard = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
-      {/* Disclaimer bovenaan */}
+      {/* Disclaimer at the top */}
       <div className="w-full bg-gray-200 text-gray-700 text-sm py-2 px-4 text-center">
         This page is a mockup. The final implementation may differ based on factors like actual tool selection, data availability, and integration constraints.
       </div>
@@ -180,7 +180,7 @@ const AISolutionsDashboard = () => {
           </div>
         </header>
 
-        {/* Selector bar onder header, boven Solutions */}
+        {/* Tab selector */}
         <div className="mb-4">
           <div className="flex items-center gap-3">
             <span className="text-slate-600 text-sm">AI solutions for</span>
@@ -193,7 +193,7 @@ const AISolutionsDashboard = () => {
                   : 'text-slate-700 hover:bg-slate-50'}`}
                 aria-pressed={activeTab === 'enterprise'}
               >
-                Enterprise productivity
+                Enterprise Productivity
               </button>
               <button
                 type="button"
@@ -211,9 +211,9 @@ const AISolutionsDashboard = () => {
 
         {(activeTab === 'enterprise' || activeTab === 'product') && (
           <div className="grid grid-cols-12 gap-6">
-            {/* Linker kolom */}
+            {/* Left sidebar */}
             <div className="col-span-3 bg-white rounded-2xl shadow-xl p-6">
-              {/* Team filters alleen in Product tab */}
+              {/* Team filters only in Product tab */}
               {activeTab === 'product' && (
                 <div className="flex flex-col gap-2 mb-4">
                   {['A','B','C'].map((team) => (
@@ -228,7 +228,7 @@ const AISolutionsDashboard = () => {
                       }`}
                       aria-pressed={activeTeam === team}
                     >
-                      Product team {team}
+                      Product Team {team}
                     </button>
                   ))}
                 </div>
@@ -241,7 +241,7 @@ const AISolutionsDashboard = () => {
                 Solutions ({filteredSolutions.length})
               </h2>
 
-              {/* Zoeken */}
+              {/* Search */}
               <div className="mb-6 relative">
                 <label htmlFor="search" className="sr-only">Search solutions</label>
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={18} />
@@ -255,7 +255,7 @@ const AISolutionsDashboard = () => {
                 />
               </div>
 
-              {/* Lijst */}
+              {/* List */}
               <div className="space-y-3" role="listbox" aria-label="AI solutions">
                 {filteredSolutions.map((solution) => (
                   <button
@@ -299,7 +299,7 @@ const AISolutionsDashboard = () => {
 
                 {filteredSolutions.length === 0 && (
                   <div className="text-center py-8">
-                    <p className="text-slate-500">Geen resultaten</p>
+                    <p className="text-slate-500">No results found</p>
                     <button
                       onClick={() => setSearchQuery('')}
                       className="mt-2 text-sm text-blue-600 hover:text-blue-700"
@@ -311,7 +311,7 @@ const AISolutionsDashboard = () => {
               </div>
             </div>
 
-            {/* Rechter kolom */}
+            {/* Right column */}
             <div className="col-span-9 space-y-6">
               <SolutionDetails selectedSolution={selectedSolution} />
             </div>
@@ -332,6 +332,7 @@ function SolutionDetails({ selectedSolution }) {
   }
   return (
     <>
+      {/* Main header card */}
       <div className="bg-white rounded-2xl shadow-xl p-8">
         <div className="flex items-start gap-6 mb-6">
           <div className="flex-shrink-0 w-24 h-24 bg-slate-50 rounded-2xl p-4 flex items-center justify-center shadow-md">
@@ -379,6 +380,7 @@ function SolutionDetails({ selectedSolution }) {
         </div>
       </div>
 
+      {/* Expected Use Cases card */}
       <div className="bg-white rounded-2xl shadow-xl p-6">
         <div className="flex items-center gap-2 mb-4">
           <Target size={20} style={{color: '#54BAFC'}} />
@@ -389,6 +391,7 @@ function SolutionDetails({ selectedSolution }) {
         <p className="text-slate-700 leading-relaxed">{selectedSolution.expectedUseCase}</p>
       </div>
 
+      {/* Access & Usage card */}
       <div className="bg-white rounded-2xl shadow-xl p-6">
         <h3 className="text-xl font-semibold mb-6" style={{background: 'linear-gradient(90deg, #54BAFC 0%, #0066CC 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>
           Access & Usage Information
@@ -426,7 +429,8 @@ function SolutionDetails({ selectedSolution }) {
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl shadow-xl p-6">
+      {/* Lead Contacts on background at the bottom */}
+      <div className="mt-6">
         <h3 className="text-xl font-semibold mb-4" style={{background: 'linear-gradient(90deg, #54BAFC 0%, #0066CC 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>
           Lead Contacts
         </h3>
