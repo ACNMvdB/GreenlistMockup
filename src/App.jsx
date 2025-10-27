@@ -182,7 +182,7 @@ const AISolutionsDashboard = () => {
                   : 'text-slate-700 hover:bg-slate-50'}`}
                 aria-pressed={activeTab === 'product'}
               >
-                Product Team
+                Product Teams
               </button>
             </div>
           </div>
